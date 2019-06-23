@@ -63,3 +63,15 @@ This website can be visited using any standard web browser. It requires JavaScri
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 ````
+
+## Known Issues with NPS API
+* The model given in the docs do not accurately represent the actual API output. I recommend making API calls with [Postman]("https://www.getpostman.com/") to see the actual output.
+* Asking the API for more then a certain number of items will often result in a bad output.
+* The `events` API does not take in the same GET Parameters as listed in the API Docs (specifically the `limit` and `start` parameters should actually be passed in as `pagesize` and `pagenumber` respectively).
+* The time from call to result is variable and can some times take upwards of 10 seconds (see Future Work below).
+
+## Future Work
+
+Possible future work includes:
+* Adding all NPS Data to Firestore DB for quicker and more efficient access
+* Adding more icons and images
