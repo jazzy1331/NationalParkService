@@ -8,6 +8,7 @@ let id = params.get('id');
 let q = params.get('q');
 var parkCode = params.get('parkCode');
 var parkName = "";
+
 // Variables for the possible use of a map
 var lat = "";
 var long = "";
@@ -98,6 +99,9 @@ class FillInformation extends React.Component {
 					console.log("Error: " + error + ". Displaying text as 'Unavailable'");
 				});
 		} else {
+			if(q == "null" || q == null){
+				q = "";
+			}
 			fetch("https://developer.nps.gov/api/v1/" + topic + "?q=" + q + "&api_key=" + API_KEY)
 				.then(res => res.json())
 				.then(

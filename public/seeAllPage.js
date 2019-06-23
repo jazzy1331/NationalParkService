@@ -83,7 +83,9 @@ switch (desig) {
 
 // Full State name is found based on abbreviation
 var stateFull = "";
-switch (state.toUpperCase()){
+if(state != null && state != "null"){
+	var stateUpperCase = state.toUpperCase();
+	switch (stateUpperCase){
 	  case "AL":
 	      stateFull = "ALABAMA";
 				break;
@@ -262,6 +264,7 @@ switch (state.toUpperCase()){
 	      stateFull = "WYOMING";
 				break;
 	}
+}
 
 // Sets a blank string if filter isn't present
 if (state == "null" || state == null) {
@@ -536,7 +539,7 @@ class FillInformation extends React.Component {
                       <p class="card-text">{item.description}</p>
                    </div>
                    <div class="card-footer">
-                      <a href={"specificPage.html?parkCode=" + item.parkCode + "&name=" + item.title + "&topic=" + target  + "&id=" + item.id + "&q=" + keyword} class="btn btn-secondary my-2">More Information</a>
+                      <a href={"specificPage.html?parkCode=" + item.sitecode + "&name=" + item.title + "&topic=" + target  + "&id=" + item.id + "&q=" + keyword} class="btn btn-secondary my-2">More Information</a>
                    </div>
                 </div>
              </div>
