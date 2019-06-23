@@ -8,6 +8,9 @@ let id = params.get('id');
 let q = params.get('q');
 var parkCode = params.get('parkCode');
 var parkName = "";
+// Variables for the possible use of a map
+var lat = "";
+var long = "";
 
 // Creates listener to "click" the Go button by just pressed enter key while focused on the search box
 var input = document.getElementById("searchBox");
@@ -222,6 +225,13 @@ class FillInformation extends React.Component {
 					);
 				} else if (topic == "visitorcenters") {
 
+					// Gives a value to lat and long to be used with the map
+					if(correctItem.latLong.length > 0){
+						var commaIndex = correctItem.latLong.indexOf(",");
+						lat = correctItem.latLong.substring(5, commaIndex);
+						long = correctItem.latLong.substring(commaIndex + 6, correctItem.latLong.length-1);
+					}
+
 					return (
             <div class="container">
                <div class="card-deck">
@@ -230,7 +240,12 @@ class FillInformation extends React.Component {
                         <h3 class="card-title">{correctItem.name}</h3>
                         <p class="card-text">{correctItem.description}</p>
                         {correctItem.latLong.length > 0 &&
-                        <p class="card-text"><strong>Lat/Long:</strong> {correctItem.latLong}</p>
+													<iframe
+													   width="100%"
+													   height="400px"
+													   frameborder="0"
+													   src={"https://www.google.com/maps/embed/v1/place?key=AIzaSyAYpKgnwJxQ_r7Pcpp8hGNIUEIwp6s0jEI&q=+" + lat + "+,+" + long + "+"} allowfullscreen>
+													 </iframe>
                         }
                      </div>
                      {correctItem.url.length > 0 &&
@@ -366,17 +381,8 @@ class FillInformation extends React.Component {
 						}
 					}
 
-					// Creates a combines variable of multiple properties to make the location field
-					var locations = "";
-					if (correctItem.longitude.length > 0) {
-						locations += "Lat/Long: " + correctItem.latitude + correctItem.longitude;
-
-						if (correctItem.location.length > 0) {
-							locations += " - " + correctItem.location;
-						}
-					} else if (correctItem.location.length > 0) {
-						locations += correctItem.location;
-					}
+					// Checks if long and lat are present for map use
+					var isLongLat = correctItem.latitude.length > 0 && correctItem.longitude.length > 0;
 
 					// Creates a readable reccurence field
 					var freq = "Single Event";
@@ -432,6 +438,17 @@ class FillInformation extends React.Component {
                            {correctItem.contacttelephonenumber.length > 0 &&
                            <p><strong>Contact Phone: </strong>{correctItem.contacttelephonenumber}</p>
                            }
+													 {correctItem.location.length > 0 &&
+														 <p><strong>Location: </strong>{correctItem.location}</p>
+													 }
+													 {isLongLat &&
+														 <iframe
+														   width="100%"
+														   height="400px"
+														   frameborder="0"
+														   src={"https://www.google.com/maps/embed/v1/place?key=AIzaSyAYpKgnwJxQ_r7Pcpp8hGNIUEIwp6s0jEI&q=+" + correctItem.latitude + "+,+" + correctItem.longitude + "+"} allowfullscreen>
+														 </iframe>
+													 }
                         </div>
                         {correctItem.infourl.length > 0 &&
                         <div class="card-footer">
@@ -447,6 +464,13 @@ class FillInformation extends React.Component {
 				} else if (topic == "campgrounds") {
 
 					var buttonOnClick = "nextPage('" + correctItem.url + "')";
+
+					// Gives a value to lat and long to be used with map
+					if(correctItem.latLong.length > 0){
+						var commaIndex = correctItem.latLong.indexOf(",");
+						lat = correctItem.latLong.substring(5, commaIndex);
+						long = correctItem.latLong.substring(commaIndex + 6, correctItem.latLong.length-1);
+					}
 
 					// Creates variables combining multiple properties
 					var internet = "";
@@ -492,11 +516,18 @@ class FillInformation extends React.Component {
                            :
                            <p><strong>Overview: </strong>Not Available </p>
                            }
+
                            {correctItem.latLong.length > 0 ?
-                           <p><strong>Latitude/Longitude: </strong>{correctItem.latLong}</p>
+														 <iframe
+														   width="100%"
+														   height="400px"
+														   frameborder="0"
+														   src={"https://www.google.com/maps/embed/v1/place?key=AIzaSyAYpKgnwJxQ_r7Pcpp8hGNIUEIwp6s0jEI&q=+" + lat + "+,+" + long + "+"} allowfullscreen>
+														 </iframe>
                            :
                            <p><strong>Latitude/Longitude: </strong>Not Available </p>
                            }
+
                         </div>
                      </div>
                      <div class="card mb-4 shadow-sm">
