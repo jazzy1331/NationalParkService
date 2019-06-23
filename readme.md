@@ -25,17 +25,17 @@ A simple and intuitive website that provides information about various units in 
 
 ## Usage
 
-This website can be visited using any standard web browser. It requires JavaScript to be enabled for most content. The live address for the site is [nps.bawa.io]("http://nps.bawa.io").
+This website can be visited using any standard web browser. It requires JavaScript to be enabled for most content. The live address for the site is [nps.bawa.io](http://nps.bawa.io).
 
 ## Requirements for Development
 
 * No installation is necessary for the frontend, however a text editor such as Atom or Notepad++ is preferred.
-* NPS API requires an API Key, which can be obtained from [here.]("https://www.nps.gov/subjects/developer/get-started.htm")
+* NPS API requires an API Key, which can be obtained from [here.](https://www.nps.gov/subjects/developer/get-started.htm)
 * The website must be hosted in a way as to prevent CORS Policy Violations with the NPS API.
-* Google Cloud Functions, Firebase Firestore, Google Maps Embed API, Google Cloud Storage, and Cloud Scheduler require a Google account and must be enabled through the [Google Cloud Console.]("https://console.cloud.google.com/console")
+* Google Cloud Functions, Firebase Firestore, Google Maps Embed API, Google Cloud Storage, and Cloud Scheduler require a Google account and must be enabled through the [Google Cloud Console.](https://console.cloud.google.com/console)
 * Firebase API Key and Project ID, and NPS API Key must be updated in the `config.js` file. An example of the file is listed as `config-dummy.js` in `/public`
 * Google Cloud Storage Bucket, if used for public hosting, must be made public by adding Read permissions to `allUsers`.
-* Font Awesome requires an account and an kit number which can created [here]("https://fontawesome.com/start")
+* Font Awesome requires an account and an kit number which can created [here](https://fontawesome.com/start)
 * Bootstrap and React JS require certain scripts for full functionality:
 
 ````html
@@ -65,7 +65,7 @@ This website can be visited using any standard web browser. It requires JavaScri
 ````
 
 ## Known Issues with NPS API
-* The model given in the docs do not accurately represent the actual API output. I recommend making API calls with [Postman]("https://www.getpostman.com/") to see the actual output.
+* The model given in the docs do not accurately represent the actual API output. I recommend making API calls with [Postman](https://www.getpostman.com/) to see the actual output.
 * Asking the API for more then a certain number of items will often result in a bad output.
 * The `events` API does not take in the same GET Parameters as listed in the API Docs (specifically the `limit` and `start` parameters should actually be passed in as `pagesize` and `pagenumber` respectively).
 * The time from call to result is variable and can some times take upwards of 10 seconds (see Future Work below).
