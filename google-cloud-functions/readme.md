@@ -24,5 +24,5 @@ Via the Google Cloud Console, the Cloud Functions Console can be reached. On tha
 
 Notes:
 1. The frequency must be typed in unix-cron format
-2. The target must be HTTP
+2. HTTP should be selected of the eight provided target options because that is the way the Cloud Function is setup to get triggered
 3. The URL should be the Cloud Function's trigger URL
