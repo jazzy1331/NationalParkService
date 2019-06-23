@@ -21,7 +21,7 @@ A simple and intuitive website that provides information about various units in 
 
 **Google Cloud Scheduler:** An online cron job scheduler. Responsible for starting the cloud function every 3 hours.
 
-**Google Cloud Storage**: An online bucket in which all site files are loaded and used for website hosting. (Not required for development)
+**Google Cloud Storage**: An online bucket in which all site files are loaded and used for website hosting. (Not required for development).
 
 ## Usage
 
