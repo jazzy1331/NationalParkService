@@ -1,126 +1,105 @@
 <!DOCTYPE html>
 <html>
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap: Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script type='text/javascript' src='config.js'></script>
-    <title>National Park</title>
-
-    <!-- Adds CSS properties to the three buttons -->
-    <style>
-
-      .choiceButtons{
-        width: 100%;
-        font-size: 32px;
-      }
-    </style>
-  </head>
-
-  <body>
-    <!-- Top Navigation Bar -->
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-
-      <!-- "Hamburger" Button - Only visible if screen size is small enough -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar8">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <span class="navbar-text">&nbsp;</span>
-
-      <!-- Components of the navigation bar -->
-      <div class="navbar-collapse collapse" id="navbar8">
-        <div class="navbar-nav" style="position: absolute; left: 50%; transform: translateX(-50%);">
-
-          <!-- Title -->
-          <a href="index.html" class="navbar-brand d-flex">
-            <strong>National Park Service</strong>
-          </a>
-        </div>
-
-        <!-- Search Box -->
-        <div class="navbar-nav ml-auto mr-sm-0 container justify-content-end">
-          <input style="width:15%" class="form-control mr-sm-2" id="searchBox" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" id="searchButton" onclick="goToSearch()" type="submit">Go!</button>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Main Content - Title and options -->
-    <main role="main">
-
-      <section class="jumbotron text-center">
-
-        <!-- Main Title -->
-        <div class="container">
-          <p class="lead text-muted">Welcome To</p>
-          <h1 id="parkNameHeader" class="jumbotron-heading"></h1>
-          <p class="muted-text" id=description></p>
-        </div>
-      </section>
-
-      <!-- Contains the Three buttons -->
-      <div class="container">
-        <div class="row d-flex justify-content-center">
-          <div class="mx-auto">
-            <button id="thingsButton" class="btn btn-dark btn-lg my-3 choiceButtons" onClick="nextPage('things')">Things to Do</button>
-            <br>
-            <button id="learnButton" class="btn btn-dark btn-lg my-3 choiceButtons" onClick="nextPage('learn')">Learn More</button>
-            <br>
-            <button id="alertsButton" type="button" class="btn btn-dark btn-lg my-3 choiceButtons" data-toggle="modal" data-target="#myModal">Alerts <div class="badge badge-pill badge-secondary" id="alertsBadge"></div></button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" role="dialog">
-              <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="modal-title mr-auto">Alerts</h4>
-                  </div>
-                  <div class="modal-body">
-                    <div id="alertsContainer"></div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-
-              </div>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Bootstrap: Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <script type='text/javascript' src='config.js'></script>
+      <title>National Park</title>
+      <!-- Adds CSS properties to the three buttons -->
+      <style>
+         .choiceButtons{
+         width: 100%;
+         font-size: 32px;
+         }
+      </style>
+   </head>
+   <body>
+      <!-- Top Navigation Bar -->
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+         <!-- "Hamburger" Button - Only visible if screen size is small enough -->
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar8">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <span class="navbar-text">&nbsp;</span>
+         <!-- Components of the navigation bar -->
+         <div class="navbar-collapse collapse" id="navbar8">
+            <div class="navbar-nav" style="position: absolute; left: 50%; transform: translateX(-50%);">
+               <!-- Title -->
+               <a href="index.html" class="navbar-brand d-flex">
+               <strong>National Park Service</strong>
+               </a>
             </div>
-
-          </div>
-        </div>
+            <!-- Search Box -->
+            <div class="navbar-nav ml-auto mr-sm-0 container justify-content-end">
+               <input style="width:15%" class="form-control mr-sm-2" id="searchBox" type="text" placeholder="Search" aria-label="Search">
+               <button class="btn btn-outline-success my-2 my-sm-0" id="searchButton" onclick="goToSearch()" type="submit">Go!</button>
+            </div>
+         </div>
+      </nav>
+      <!-- Main Content - Title and options -->
+      <main role="main">
+         <section class="jumbotron text-center">
+            <!-- Main Title -->
+            <div class="container">
+               <p class="lead text-muted">Welcome To</p>
+               <h1 id="parkNameHeader" class="jumbotron-heading"></h1>
+               <p class="muted-text" id=description></p>
+            </div>
+         </section>
+         <!-- Contains the Three buttons -->
+         <div class="container">
+            <div class="row d-flex justify-content-center">
+               <div class="mx-auto">
+                  <button id="thingsButton" class="btn btn-dark btn-lg my-3 choiceButtons" onClick="nextPage('things')">Things to Do</button>
+                  <br>
+                  <button id="learnButton" class="btn btn-dark btn-lg my-3 choiceButtons" onClick="nextPage('learn')">Learn More</button>
+                  <br>
+                  <button id="alertsButton" type="button" class="btn btn-dark btn-lg my-3 choiceButtons" data-toggle="modal" data-target="#myModal">
+                     Alerts
+                     <div class="badge badge-pill badge-secondary" id="alertsBadge"></div>
+                  </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="myModal" role="dialog">
+                     <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <h4 class="modal-title mr-auto">Alerts</h4>
+                           </div>
+                           <div class="modal-body">
+                              <div id="alertsContainer"></div>
+                           </div>
+                           <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+      <!-- Load React. -->
+      <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+      <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+      <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+      <script src="https://unpkg.com/babel-standalone@6.19.0/babel.min.js"></script>
+      <!-- Load our React component. -->
+      <script src="parkPage.js" type="text/babel"></script>
+      <!-- Load Bootstrap 4.3.1 Components -->
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+      <!-- Popper JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+   </body>
+   <footer class="footer mt-auto py-3">
+      <div class="container">
+         <p class="text-muted text-center">© 2019 Jasmohan Bawa</p>
+         <p class="text-muted text-center">Data is owned and pulled from the National Park Service</p>
       </div>
-
-    </main>
-
-    <!-- Load React. -->
-    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/babel-standalone@6.19.0/babel.min.js"></script>
-
-    <!-- Load our React component. -->
-    <script src="parkPage.js" type="text/babel"></script>
-
-    <!-- Load Bootstrap 4.3.1 Components -->
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-  </body>
-
-  <footer class="footer mt-auto py-3">
-    <div class="container d-flex justify-content-center">
-      <span class="text-muted">© 2019 Jasmohan Bawa <br>Data is owned and pulled from the National Park Service</span>
-    </div>
-  </footer>
-
+   </footer>
 </html>

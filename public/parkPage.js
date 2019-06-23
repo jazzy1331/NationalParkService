@@ -64,6 +64,7 @@ class Alerts extends React.Component {
       });
 
   }
+    // Renders the alerts on the modal
     render() {
       const { error, isLoaded, items } = this.state;
 
@@ -74,8 +75,10 @@ class Alerts extends React.Component {
         return <div>Loading {this.props.target} List...</div>;
       } else {
 
+          // Gives a value to the badge
           document.getElementById("alertsBadge").innerHTML = items.length
 
+          // Adds a color property to each alert based on its category
           for(var i = 0; i < items.length; i++){
 
             switch(items[i].category){
@@ -100,19 +103,18 @@ class Alerts extends React.Component {
             }
           }
 
+          // Adds alerts to modal if there are any, otherwise sets a placeholder text
           if(items.length > 0){
             return (
-
               <div>
-
-              {items.map(item => (
-
-                <div>
-                  <h6>{item.title}</h6>
-                  <p><strong className={item.colorClass}>{item.category}</strong>: {item.description} {item.url.length > 0 &&
-                  <a href={item.url}>More Info</a>}</p>
-                </div>
-                ))}
+                 {items.map(item => (
+                 <div>
+                    <h6>{item.title}</h6>
+                    <p><strong className={item.colorClass}>{item.category}</strong>: {item.description} {item.url.length > 0 &&
+                       <a href={item.url}>More Info</a>}
+                    </p>
+                 </div>
+                 ))}
               </div>
             );
           }else{
