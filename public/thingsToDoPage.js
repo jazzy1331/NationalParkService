@@ -86,42 +86,100 @@ class FillInformation extends React.Component {
 			// Checks which target is currently being processed to reference the appropriate attributes
 			if (this.props.target == "campgrounds" || this.props.target == "visitorcenters") {
 
+				var title = "";
+				if(this.props.target == "campgrounds"){
+					title = "Campgrounds";
+				}else{
+					title = "Visitor Centers";
+				}
+
+				// return (
+        //   <ul class="list-group">
+        //      {items.map(item => (
+        //      <div>
+        //         <li class="list-group-item"><a href={"specificPage.html?parkCode=" + parkCode + "&id=" + item.id + "&topic=" + this.props.target + "&name=" + item.name}>
+        //            {item.name}
+        //            </a>
+        //         </li>
+        //      </div>
+        //      ))}
+        //   </ul>
+				// );
+
 				return (
-          <ul class="list-group">
-             {items.map(item => (
-             <div>
-                <li class="list-group-item"><a href={"specificPage.html?parkCode=" + parkCode + "&id=" + item.id + "&topic=" + this.props.target + "&name=" + item.name}>
-                   {item.name}
-                   </a>
-                </li>
-             </div>
-             ))}
-          </ul>
+					<div class="card mb-4 shadow-sm">
+						<div class="card-body">
+							<h2 class="card-title">{title}</h2>
+							<ul class="list-group">
+								 {items.map(item => (
+								 <div>
+										<li class="list-group-item"><a href={"specificPage.html?parkCode=" + parkCode + "&id=" + item.id + "&topic=" + this.props.target + "&name=" + item.name}>
+											 {item.name}
+											 </a>
+										</li>
+								 </div>
+								 ))}
+							</ul>
+							<br></br>
+						</div>
+						<div class="card-footer">
+							 <a type="button" class="btn btn-secondary" href={"seeAllPage.html?parkCode=" + parkCode + "&target=" + this.props.target} role="button">See All  &#187;</a>
+						</div>
+					</div>
 				);
 			} else {
+
 				return (
-          <ul class="list-group">
-             {items.map(item => (
-             <div>
-                <li class="list-group-item" ><a href={"specificPage.html?parkCode=" + parkCode + "&id=" + item.id + "&topic=" + this.props.target + "&name=" + item.title}>
-                   {item.title}
-                   </a>
-                </li>
-             </div>
-             ))}
-          </ul>
+					<div class="card mb-4 shadow-sm">
+						<div class="card-body">
+							<h2 class="card-title">Events</h2>
+							<ul class="list-group">
+								 {items.map(item => (
+								 <div>
+									 <li class="list-group-item" ><a href={"specificPage.html?parkCode=" + parkCode + "&id=" + item.id + "&topic=" + this.props.target + "&name=" + item.title}>
+											{item.title}
+											</a>
+									 </li>
+								 </div>
+								 ))}
+							</ul>
+							<br></br>
+						</div>
+						<div class="card-footer">
+							 <a type="button" class="btn btn-secondary" href={"seeAllPage.html?parkCode=" + parkCode + "&target=" + this.props.target} role="button">See All  &#187;</a>
+						</div>
+					</div>
 				);
 			}
 		}
 	}
 }
 
+// React Class that combines all three columns and renders them together
+class Columns extends React.Component{
+
+	render(){
+
+		// Makes instances of the FillInformation class for each column
+		return(
+
+			<div class="card-deck d-flex justify-content-center">
+				<FillInformation target="campgrounds"/>
+				<FillInformation target="visitorcenters"/>
+				<FillInformation target="events"/>
+			</div>
+		);
+
+	}
+}
+
 // Renders each React JS class with the appropriate DOM Element to render into
 // Takes in property 'target' to get the correct information
-ReactDOM.render( < FillInformation target = "campgrounds" / > , document.getElementById("campgroundsContainer"));
-ReactDOM.render( < FillInformation target = "visitorcenters" / > , document.getElementById("visitorContainer"));
-ReactDOM.render( < FillInformation target = "events" / > , document.getElementById("eventsContainer"));
+// ReactDOM.render( < FillInformation target = "campgrounds" / > , document.getElementById("campgroundsContainer"));
+// ReactDOM.render( < FillInformation target = "visitorcenters" / > , document.getElementById("visitorContainer"));
+// ReactDOM.render( < FillInformation target = "events" / > , document.getElementById("eventsContainer"));
 
+ReactDOM.render( < Columns / > , document.getElementById("contentContainer"));
 
 // Used as onClick function for button, going to the appropriate page
 function nextPage(targetPage) {
