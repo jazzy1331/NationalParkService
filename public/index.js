@@ -178,6 +178,10 @@ class News extends React.Component {
 ReactDOM.render( < Parks / > , document.getElementById("parkChooserDomContainer"));
 ReactDOM.render( < News / > , document.getElementById("newsArticlesDomContainer"));
 
+function goTo(stateCode){
+	window.location = "seeAllPage.html?target=parks&state=" + stateCode + "&from=home&search=y";
+}
+
 // Begins the search process by opening the search page
 function goToSearch() {
 	var keyword = document.getElementById("searchBox").value;

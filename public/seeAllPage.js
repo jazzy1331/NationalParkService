@@ -8,6 +8,7 @@ var search = params.get('search');
 var keyword = params.get('keyword');
 var state = params.get('state');
 var desig = params.get('desig');
+var from = params.get('from');
 
 var parkName = "";
 var parkData = [];
@@ -80,6 +81,188 @@ switch (desig) {
 		fullDesignation = "All";
 }
 
+// Full State name is found based on abbreviation
+var stateFull = "";
+switch (state.toUpperCase()){
+	  case "AL":
+	      stateFull = "ALABAMA";
+				break;
+	  case "AK":
+	      stateFull = "ALASKA";
+				break;
+	  case "AS":
+	      stateFull = "AMERICAN SAMOA";
+				break;
+	  case "AZ":
+	      stateFull = "ARIZONA";
+				break;
+	  case "AR":
+	      stateFull = "ARKANSAS";
+				break;
+	  case "CA":
+	      stateFull = "CALIFORNIA";
+				break;
+	  case "CO":
+	      stateFull = "COLORADO";
+				break;
+	  case "CT":
+	      stateFull = "CONNECTICUT";
+				break;
+	  case "DE":
+	      stateFull = "DELAWARE";
+				break;
+	  case "DC":
+	      stateFull = "DISTRICT OF COLUMBIA";
+				break;
+	  case "FM":
+	      stateFull = "FEDERATED STATES OF MICRONESIA";
+				break;
+	  case "FL":
+	      stateFull = "FLORIDA";
+				break;
+	  case "GA":
+	      stateFull = "GEORGIA";
+				break;
+	  case "GU":
+	      stateFull = "GUAM";
+				break;
+	  case "HI":
+	      stateFull = "HAWAII";
+				break;
+	  case "ID":
+	      stateFull = "IDAHO";
+				break;
+	  case "IL":
+	      stateFull = "ILLINOIS";
+				break;
+	  case "IN":
+	      stateFull = "INDIANA";
+				break;
+	  case "IA":
+	      stateFull = "IOWA";
+				break;
+	  case "KS":
+	      stateFull = "KANSAS";
+				break;
+	  case "KY":
+	      stateFull = "KENTUCKY";
+				break;
+	  case "LA":
+	      stateFull = "LOUISIANA";
+				break;
+	  case "ME":
+	      stateFull = "MAINE";
+				break;
+	  case "MH":
+	      stateFull = "MARSHALL ISLANDS";
+				break;
+	  case "MD":
+	      stateFull = "MARYLAND";
+				break;
+	  case "MA":
+	      stateFull = "MASSACHUSETTS";
+				break;
+	  case "MI":
+	      stateFull = "MICHIGAN";
+				break;
+	  case "MN":
+	      stateFull = "MINNESOTA";
+				break;
+	  case "MS":
+	      stateFull = "MISSISSIPPI";
+				break;
+	  case "MO":
+	      stateFull = "MISSOURI";
+				break;
+	  case "MT":
+	      stateFull = "MONTANA";
+				break;
+	  case "NE":
+	      stateFull = "NEBRASKA";
+				break;
+	  case "NV":
+	      stateFull = "NEVADA";
+				break;
+	  case "NH":
+	      stateFull = "NEW HAMPSHIRE";
+				break;
+	  case "NJ":
+	      stateFull = "NEW JERSEY";
+				break;
+	  case "NM":
+	      stateFull = "NEW MEXICO";
+				break;
+	  case "NY":
+	      stateFull = "NEW YORK";
+				break;
+	  case "NC":
+	      stateFull = "NORTH CAROLINA";
+				break;
+	  case "ND":
+	      stateFull = "NORTH DAKOTA";
+				break;
+	  case "MP":
+	      stateFull = "NORTHERN MARIANA ISLANDS";
+				break;
+	  case "OH":
+	      stateFull = "OHIO";
+				break;
+	  case "OK":
+	      stateFull = "OKLAHOMA";
+				break;
+	  case "OR":
+	      stateFull = "OREGON";
+				break;
+	  case "PW":
+	      stateFull = "PALAU";
+				break;
+	  case "PA":
+	      stateFull = "PENNSYLVANIA";
+				break;
+	  case "PR":
+	      stateFull = "PUERTO RICO";
+				break;
+	  case "RI":
+	      stateFull = "RHODE ISLAND";
+				break;
+	  case "SC":
+	      stateFull = "SOUTH CAROLINA";
+				break;
+	  case "SD":
+	      stateFull = "SOUTH DAKOTA";
+				break;
+	  case "TN":
+	      stateFull = "TENNESSEE";
+				break;
+	  case "TX":
+	      stateFull = "TEXAS";
+				break;
+	  case "UT":
+	      stateFull = "UTAH";
+				break;
+	  case "VT":
+	      stateFull = "VERMONT";
+				break;
+	  case "VI":
+	      stateFull = "VIRGIN ISLANDS";
+				break;
+	  case "VA":
+	      stateFull = "VIRGINIA";
+				break;
+	  case "WA":
+	      stateFull = "WASHINGTON";
+				break;
+	  case "WV":
+	      stateFull = "WEST VIRGINIA";
+				break;
+	  case "WI":
+	      stateFull = "WISCONSIN";
+				break;
+	  case "WY":
+	      stateFull = "WYOMING";
+				break;
+	}
+
 // Sets a blank string if filter isn't present
 if (state == "null" || state == null) {
 	state = "";
@@ -146,20 +329,25 @@ if (search != "y") {
 		});
 } else {
 
-	// Creates fiter text for search display if filters were used
-	let filterAddon = " with filter(s): ";
+	if(from != "home"){
+		// Creates fiter text for search display if filters were used
+		let filterAddon = " with filter(s): ";
 
-	if (state != "") {
-		filterAddon += "'" + state + "'";
-	}
+		if (state != "") {
+			filterAddon += "'" + stateFull + "'";
+		}
 
-	if (fullDesignation != "All") {
-		filterAddon += " '" + fullDesignation + "'";
-	}
-	if (state == "" && desig == "") {
-		document.getElementById("parkNameHeader").innerHTML = "Searching " + document.title + " for '" + keyword + "'";
-	} else {
-		document.getElementById("parkNameHeader").innerHTML = "Searching " + document.title + " for '" + keyword + "'" + filterAddon;
+		if (fullDesignation != "All") {
+			filterAddon += " '" + fullDesignation + "'";
+		}
+		if (state == "" && desig == "") {
+			document.getElementById("parkNameHeader").innerHTML = "Searching " + document.title + " for '" + keyword + "'";
+		} else {
+			document.getElementById("parkNameHeader").innerHTML = "Searching " + document.title + " for '" + keyword + "'" + filterAddon;
+		}
+	}else{
+		  document.getElementById("parkNameHeader").innerHTML = stateFull;
+			keyword = "";
 	}
 
 }

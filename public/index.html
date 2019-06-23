@@ -41,14 +41,79 @@
                <br>
                <br>
                <!-- Park Chooser -->
+               <h3 class="px-2 py-2">Find Your Park</h3>
                <div class="d-flex justify-content-center">
-                  <h3 class="px-2">Find Your Park:</h3>
                   <div class="dropdown px-2">
                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Choose
+                     Park
                      </button>
                      <!-- Individual items will be added into to this <div> from the JS code and API call -->
                      <div id="parkChooserDomContainer" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                     </div>
+                  </div>
+                  <h4 class="mx-2">OR</h4>
+                  <!-- <h5>State: </h5> -->
+                  <div class="dropdown px-2">
+                     <button class="btn btn-secondary dropdown-toggle" type="button" id="stateDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     State
+                     </button>
+                     <div class="dropdown-menu px-2">
+                        <button onClick="goTo('al')" class="dropdown-item" id="al">Alabama</button>
+                        <button onClick="goTo('ak')" class="dropdown-item" id="ak">Alaska</button>
+                        <button onClick="goTo('as')" class="dropdown-item" id="as">American Samoa</button>
+                        <button onClick="goTo('az')" class="dropdown-item" id="az">Arizona</button>
+                        <button onClick="goTo('ar')" class="dropdown-item" id="ar">Arkansas</button>
+                        <button onClick="goTo('ca')" class="dropdown-item" id="ca">California</button>
+                        <button onClick="goTo('co')" class="dropdown-item" id="co">Colorado</button>
+                        <button onClick="goTo('ct')" class="dropdown-item" id="ct">Connecticut</button>
+                        <button onClick="goTo('de')" class="dropdown-item" id="de">Delaware</button>
+                        <button onClick="goTo('dc')" class="dropdown-item" id="dc">District of Columbia</button>
+                        <button onClick="goTo('fl')" class="dropdown-item" id="fl">Florida</button>
+                        <button onClick="goTo('ga')" class="dropdown-item" id="ga">Georgia</button>
+                        <button onClick="goTo('gu')" class="dropdown-item" id="gu">Guam</button>
+                        <button onClick="goTo('hi')" class="dropdown-item" id="hi">Hawaii</button>
+                        <button onClick="goTo('id')" class="dropdown-item" id="id">Idaho</button>
+                        <button onClick="goTo('il')" class="dropdown-item" id="il">Illinois</button>
+                        <button onClick="goTo('in')" class="dropdown-item" id="in">Indiana</button>
+                        <button onClick="goTo('ia')" class="dropdown-item" id="ia">Iowa</button>
+                        <button onClick="goTo('ks')" class="dropdown-item" id="ks">Kansas</button>
+                        <button onClick="goTo('ky')" class="dropdown-item" id="ky">Kentucky</button>
+                        <button onClick="goTo('la')" class="dropdown-item" id="la">Louisiana</button>
+                        <button onClick="goTo('me')" class="dropdown-item" id="me">Maine</button>
+                        <button onClick="goTo('md')" class="dropdown-item" id="md">Maryland</button>
+                        <button onClick="goTo('ma')" class="dropdown-item" id="ma">Massachusetts</button>
+                        <button onClick="goTo('mi')" class="dropdown-item" id="mi">Michigan</button>
+                        <button onClick="goTo('mn')" class="dropdown-item" id="mn">Minnesota</button>
+                        <button onClick="goTo('ms')" class="dropdown-item" id="ms">Mississippi</button>
+                        <button onClick="goTo('mo')" class="dropdown-item" id="mo">Missouri</button>
+                        <button onClick="goTo('mt')" class="dropdown-item" id="mt">Montana</button>
+                        <button onClick="goTo('ne')" class="dropdown-item" id="ne">Nebraska</button>
+                        <button onClick="goTo('nv')" class="dropdown-item" id="nv">Nevada</button>
+                        <button onClick="goTo('nh')" class="dropdown-item" id="nh">New Hampshire</button>
+                        <button onClick="goTo('nj')" class="dropdown-item" id="nj">New Jersey</button>
+                        <button onClick="goTo('nm')" class="dropdown-item" id="nm">New Mexico</button>
+                        <button onClick="goTo('ny')" class="dropdown-item" id="ny">New York</button>
+                        <button onClick="goTo('nc')" class="dropdown-item" id="nc">North Carolina</button>
+                        <button onClick="goTo('nd')" class="dropdown-item" id="nd">North Dakota</button>
+                        <button onClick="goTo('mp')" class="dropdown-item" id="mp">Northern Mariana Islands</button>
+                        <button onClick="goTo('oh')" class="dropdown-item" id="oh">Ohio</button>
+                        <button onClick="goTo('ok')" class="dropdown-item" id="ok">Oklahoma</button>
+                        <button onClick="goTo('or')" class="dropdown-item" id="or">Oregon</button>
+                        <button onClick="goTo('pa')" class="dropdown-item" id="pa">Pennsylvania</button>
+                        <button onClick="goTo('pr')" class="dropdown-item" id="pr">Puerto Rico</button>
+                        <button onClick="goTo('ri')" class="dropdown-item" id="ri">Rhode Island</button>
+                        <button onClick="goTo('sc')" class="dropdown-item" id="sc">South Carolina</button>
+                        <button onClick="goTo('sd')" class="dropdown-item" id="sd">South Dakota</button>
+                        <button onClick="goTo('tn')" class="dropdown-item" id="tn">Tennessee</button>
+                        <button onClick="goTo('tx')" class="dropdown-item" id="tx">Texas</button>
+                        <button onClick="goTo('ut')" class="dropdown-item" id="ut">Utah</button>
+                        <button onClick="goTo('vt')" class="dropdown-item" id="vt">Vermont</button>
+                        <button onClick="goTo('vi')" class="dropdown-item" id="vi">Virgin Islands</button>
+                        <button onClick="goTo('va')" class="dropdown-item" id="va">Virginia</button>
+                        <button onClick="goTo('wa')" class="dropdown-item" id="wa">Washington</button>
+                        <button onClick="goTo('wv')" class="dropdown-item" id="wv">West Virginia</button>
+                        <button onClick="goTo('wi')" class="dropdown-item" id="wi">Wisconsin</button>
+                        <button onClick="goTo('wy')" class="dropdown-item" id="wy">Wyoming</button>
                      </div>
                   </div>
                </div>
