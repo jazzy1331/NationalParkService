@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap: Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script type='text/javascript' src='config.js'></script>
+    <title>Things to Do</title>
+  </head>
+  <body>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+      <!-- "Hamburger" Button - Only visible if screen size is small enough -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar8">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <span class="navbar-text">&nbsp;</span>
+
+      <!-- Components of the navigation bar -->
+      <div class="navbar-collapse collapse" id="navbar8">
+        <div class="navbar-nav" style="position: absolute; left: 50%; transform: translateX(-50%);">
+
+          <!-- Title -->
+          <a href="index.html" class="navbar-brand d-flex">
+            <strong>National Park Service</strong>
+          </a>
+        </div>
+
+        <!-- Search Box -->
+        <div class="navbar-nav ml-auto mr-sm-0 container justify-content-end">
+          <input style="width:15%" class="form-control mr-sm-2" id="searchBox" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" id="searchButton" onclick="goToSearch()" type="submit">Go!</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content - Title and topics -->
+    <main role="main">
+
+      <section class="jumbotron text-center">
+
+        <!-- Main Title -->
+        <div class="container">
+          <p id="parkNameHeader" class="lead text-muted"></p>
+          <h1 class="jumbotron-heading">Learn More</h1>
+          <p>Find out more about the amazing park!</p>
+          <br>
+          <br>
+        </div>
+      </section>
+
+      <!-- Three cards to hold the information to the three topics -->
+      <div class="container">
+        <div class="card-deck">
+
+          <!-- News Releases -->
+          <!-- <div class="col-md-4"> -->
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <h2 class="card-title">News Releases</h2>
+                <div id="newsContainer" class="card-text"></div>
+              </div>
+              <div class="card-footer">
+                <button type="button" class="btn btn-secondary" onClick="nextPage('news')" role="button">See All  &#187;</buton>
+              </div>
+            </div>
+          <!-- </div> -->
+
+          <!-- Articles -->
+          <!-- <div class="col-md-4"> -->
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <h2 class="card-title">Articles</h2>
+                <div id="articlesContainer" class="card-text"></div>
+              </div>
+              <div class="card-footer">
+                <button type="button" class="btn btn-secondary" onClick="nextPage('articles')" role="button">See All &#187;</buton>
+              </div>
+            </div>
+          <!-- </div> -->
+
+          <!-- Education -->
+          <!-- <div class="col-md-4"> -->
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <h2 class="card-title">Education</h2>
+                <a href="#" onClick="nextPage('lessons')" class="card-text">Lesson Plans</a>
+                <br>
+                <a href="#" onClick="nextPage('places')" class="card-text">Places</a>
+                <br>
+                <a href="#" onClick="nextPage('people')" class="card-text">People</a>
+                <br>
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.19.0/babel.min.js"></script>
+
+    <!-- Load our React component. -->
+    <script src="learnMorePage.js" type="text/babel"></script>
+
+    <!-- Load Bootstrap 4.3.1 Components -->
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  </body>
+
+  <footer class="footer mt-auto py-3">
+    <div class="container d-flex justify-content-center">
+      <span class="text-muted">© 2019 Jasmohan Bawa <br>Data is owned and pulled from the National Park Service</span>
+    </div>
+  </footer>
+</html>

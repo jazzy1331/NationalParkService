@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type='text/javascript' src='config.js'></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap: Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <script src="https://kit.fontawesome.com/9cd387ab56.js"></script>
+    <title>Search</title>
+</head>
+
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+    <!-- "Hamburger" Button - Only visible if screen size is small enough -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar8">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <span class="navbar-text">&nbsp;</span>
+
+    <!-- Components of the navigation bar -->
+    <div class="navbar-collapse collapse" id="navbar8">
+      <div class="navbar-nav" style="position: absolute; left: 50%; transform: translateX(-50%);">
+
+        <!-- Title -->
+        <a href="index.html" class="navbar-brand d-flex">
+          <strong>National Park Service</strong>
+        </a>
+      </div>
+
+      <!-- Search Box -->
+      <div class="navbar-nav ml-auto mr-sm-0 container justify-content-end">
+        <input style="width:15%" class="form-control mr-sm-2" id="searchBox" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" id="searchButton" onclick="goToSearch()" type="submit">Go!</button>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="container d-flex justify-content-center">
+  <br>
+  <h1 class="display-2">Search</h1>
+  <br>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title d-flex justify-content-center mb-4">Filter Results</h3>
+      <div class="d-flex justify-content-center mb-2">
+      <h5>State: </h5>
+    <div class="dropdown px-2">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="stateDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      All
+    </button>
+    <div class="dropdown-menu px-2">
+      <button onClick="filterResults('all')" class="dropdown-item" id="all">All</button>
+      <button onClick="filterResults('al')" class="dropdown-item" id="al">Alabama</button>
+      <button onClick="filterResults('ak')" class="dropdown-item" id="ak">Alaska</button>
+      <button onClick="filterResults('as')" class="dropdown-item" id="as">American Samoa</button>
+      <button onClick="filterResults('az')" class="dropdown-item" id="az">Arizona</button>
+      <button onClick="filterResults('ar')" class="dropdown-item" id="ar">Arkansas</button>
+      <button onClick="filterResults('ca')" class="dropdown-item" id="ca">California</button>
+      <button onClick="filterResults('co')" class="dropdown-item" id="co">Colorado</button>
+      <button onClick="filterResults('ct')" class="dropdown-item" id="ct">Connecticut</button>
+      <button onClick="filterResults('de')" class="dropdown-item" id="de">Delaware</button>
+      <button onClick="filterResults('dc')" class="dropdown-item" id="dc">District of Columbia</button>
+      <button onClick="filterResults('fl')" class="dropdown-item" id="fl">Florida</button>
+      <button onClick="filterResults('ga')" class="dropdown-item" id="ga">Georgia</button>
+      <button onClick="filterResults('gu')" class="dropdown-item" id="gu">Guam</button>
+      <button onClick="filterResults('hi')" class="dropdown-item" id="hi">Hawaii</button>
+      <button onClick="filterResults('id')" class="dropdown-item" id="id">Idaho</button>
+      <button onClick="filterResults('il')" class="dropdown-item" id="il">Illinois</button>
+      <button onClick="filterResults('in')" class="dropdown-item" id="in">Indiana</button>
+      <button onClick="filterResults('ia')" class="dropdown-item" id="ia">Iowa</button>
+      <button onClick="filterResults('ks')" class="dropdown-item" id="ks">Kansas</button>
+      <button onClick="filterResults('ky')" class="dropdown-item" id="ky">Kentucky</button>
+      <button onClick="filterResults('la')" class="dropdown-item" id="la">Louisiana</button>
+      <button onClick="filterResults('me')" class="dropdown-item" id="me">Maine</button>
+      <button onClick="filterResults('md')" class="dropdown-item" id="md">Maryland</button>
+      <button onClick="filterResults('ma')" class="dropdown-item" id="ma">Massachusetts</button>
+      <button onClick="filterResults('mi')" class="dropdown-item" id="mi">Michigan</button>
+      <button onClick="filterResults('mn')" class="dropdown-item" id="mn">Minnesota</button>
+      <button onClick="filterResults('ms')" class="dropdown-item" id="ms">Mississippi</button>
+      <button onClick="filterResults('mo')" class="dropdown-item" id="mo">Missouri</button>
+      <button onClick="filterResults('mt')" class="dropdown-item" id="mt">Montana</button>
+      <button onClick="filterResults('ne')" class="dropdown-item" id="ne">Nebraska</button>
+      <button onClick="filterResults('nv')" class="dropdown-item" id="nv">Nevada</button>
+      <button onClick="filterResults('nh')" class="dropdown-item" id="nh">New Hampshire</button>
+      <button onClick="filterResults('nj')" class="dropdown-item" id="nj">New Jersey</button>
+      <button onClick="filterResults('nm')" class="dropdown-item" id="nm">New Mexico</button>
+      <button onClick="filterResults('ny')" class="dropdown-item" id="ny">New York</button>
+      <button onClick="filterResults('nc')" class="dropdown-item" id="nc">North Carolina</button>
+      <button onClick="filterResults('nd')" class="dropdown-item" id="nd">North Dakota</button>
+      <button onClick="filterResults('mp')" class="dropdown-item" id="mp">Northern Mariana Islands</button>
+      <button onClick="filterResults('oh')" class="dropdown-item" id="oh">Ohio</button>
+      <button onClick="filterResults('ok')" class="dropdown-item" id="ok">Oklahoma</button>
+      <button onClick="filterResults('or')" class="dropdown-item" id="or">Oregon</button>
+      <button onClick="filterResults('pa')" class="dropdown-item" id="pa">Pennsylvania</button>
+      <button onClick="filterResults('pr')" class="dropdown-item" id="pr">Puerto Rico</button>
+      <button onClick="filterResults('ri')" class="dropdown-item" id="ri">Rhode Island</button>
+      <button onClick="filterResults('sc')" class="dropdown-item" id="sc">South Carolina</button>
+      <button onClick="filterResults('sd')" class="dropdown-item" id="sd">South Dakota</button>
+      <button onClick="filterResults('tn')" class="dropdown-item" id="tn">Tennessee</button>
+      <button onClick="filterResults('tx')" class="dropdown-item" id="tx">Texas</button>
+      <button onClick="filterResults('ut')" class="dropdown-item" id="ut">Utah</button>
+      <button onClick="filterResults('vt')" class="dropdown-item" id="vt">Vermont</button>
+      <button onClick="filterResults('vi')" class="dropdown-item" id="vi">Virgin Islands</button>
+      <button onClick="filterResults('va')" class="dropdown-item" id="va">Virginia</button>
+      <button onClick="filterResults('wa')" class="dropdown-item" id="wa">Washington</button>
+      <button onClick="filterResults('wv')" class="dropdown-item" id="wv">West Virginia</button>
+      <button onClick="filterResults('wi')" class="dropdown-item" id="wi">Wisconsin</button>
+      <button onClick="filterResults('wy')" class="dropdown-item" id="wy">Wyoming</button>
+      </div>
+  </div>
+</div>
+<div class="d-flex justify-content-center">
+  <h5>Designation: </h5>
+  <div class="dropdown px-2">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="desigDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      All
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <button class="dropdown-item" onClick="filterResults('alll')">All</button>
+      <button class="dropdown-item" onClick="filterResults('park')">National Park</button>
+      <button class="dropdown-item" onClick="filterResults('monument')">National Monument</button>
+      <button class="dropdown-item" onClick="filterResults('preserve')">National Preserve</button>
+      <button class="dropdown-item" onClick="filterResults('historicSite')">National Historic Site</button>
+      <button class="dropdown-item" onClick="filterResults('historicPark')">National Historic Park</button>
+      <button class="dropdown-item" onClick="filterResults('memorial')">National Memorial</button>
+      <button class="dropdown-item" onClick="filterResults('battlefield')">National Battlefield</button>
+      <button class="dropdown-item" onClick="filterResults('cemetery')">National Cemetery</button>
+      <button class="dropdown-item" onClick="filterResults('recreation')">National Recreation Area</button>
+      <button class="dropdown-item" onClick="filterResults('seashore')">National Seasore</button>
+      <button class="dropdown-item" onClick="filterResults('lakeshore')">National Lakeshore</button>
+      <button class="dropdown-item" onClick="filterResults('river')">National River</button>
+      <button class="dropdown-item" onClick="filterResults('parkway')">National Parkway</button>
+      <button class="dropdown-item" onClick="filterResults('trail')">National Trail</button>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+</div>
+<br>
+<br>
+  <div class="container d-flex justify-content-center">
+    <!-- <div id="searchfilterContainer"></div> -->
+  <div class="accordion w-75" id="accordionExample">
+
+    <div id="searchparksContainer"></div>
+    <div id="searchcampgroundsContainer"></div>
+    <div id="searchvisitorcentersContainer"></div>
+    <div id="searcharticlesContainer"></div>
+    <div id="searchnewsreleasesContainer"></div>
+    <div id="searcheventsContainer"></div>
+    <div id="searchplacesContainer"></div>
+    <div id="searchpeopleContainer"></div>
+    <div id="searchlessonplansContainer"></div>
+
+</div>
+</div>
+<div class="container d-flex justify-content-center">
+<h4 id="emptyText"></h4>
+</div>
+</div>
+
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+
+<!-- Load React. -->
+<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6.19.0/babel.min.js"></script>
+
+<!-- Load our React component. -->
+<script src="searchPage.js" type="text/babel"></script>
+
+<!-- Load Bootstrap 4.3.1 Components -->
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+
+<footer class="footer mt-auto py-3">
+  <div class="container d-flex justify-content-center">
+    <span class="text-muted">© 2019 Jasmohan Bawa <br>Data is owned and pulled from the National Park Service</span>
+  </div>
+</footer>
+
+</html>
