@@ -10,28 +10,31 @@
       <title>Search</title>
    </head>
    <body>
-      <!-- Top Navigation Bar -->
-      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-         <!-- "Hamburger" Button - Only visible if screen size is small enough -->
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar8">
-         <span class="navbar-toggler-icon"></span>
-         </button>
-         <span class="navbar-text">&nbsp;</span>
-         <!-- Components of the navigation bar -->
-         <div class="navbar-collapse collapse" id="navbar8">
-            <div class="navbar-nav" style="position: absolute; left: 50%; transform: translateX(-50%);">
-               <!-- Title -->
-               <a href="index.html" class="navbar-brand d-flex">
-               <strong>National Park Service</strong>
-               </a>
+     <!-- Top Navigation Bar -->
+     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <!-- "Hamburger" Button - Only visible if screen size is small enough -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar8">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-text">&nbsp;</span>
+        <!-- Components of the navigation bar -->
+        <div class="navbar-collapse collapse" id="navbar8">
+            <div class="d-flex w-50 order-0">
+              <a href="index.html"><span style="color: white" class="fas fa-home fa-2x"></span></a>
             </div>
-            <!-- Search Box -->
-            <div class="navbar-nav ml-auto mr-sm-0 container justify-content-end">
-               <input style="width:15%" class="form-control mr-sm-2" id="searchBox" type="text" placeholder="Search" aria-label="Search">
-               <button class="btn btn-outline-success my-2 my-sm-0" id="searchButton" onclick="goToSearch()" type="submit">Go!</button>
+            <div class="navbar-collapse collapse justify-content-center order-2" id="collapsingNavbar">
+              <a href="#" class="navbar-brand d-flex">
+                <strong>National Park Service</strong>
+              </a>
             </div>
-         </div>
-      </nav>
+            <div class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">
+              <div class="navbar-nav ml-auto mr-sm-0 container justify-content-end">
+                 <input style="width:15%" class="form-control mr-sm-2" id="searchBox" type="text" placeholder="Search" aria-label="Search">
+                 <button class="btn btn-outline-success my-2 my-sm-0" id="searchButton" onclick="goToSearch()" type="submit">Go!</button>
+              </div>
+            </div>
+          </div>
+     </nav>
       <!-- Main Content -->
       <div class="container d-flex justify-content-center">
          <br>
