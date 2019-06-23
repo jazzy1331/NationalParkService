@@ -115,11 +115,6 @@ class FillInformation extends React.Component {
 	}
 }
 
-// Renders each React JS class with the appropriate DOM Element to render into
-// Takes in property 'target' to get the correct information
-// ReactDOM.render( < FillInformation target = "newsreleases" / > , document.getElementById("newsContainer"));
-// ReactDOM.render( < FillInformation target = "articles" / > , document.getElementById("articlesContainer"));
-
 // React Class that combines all three columns and renders them together
 class Columns extends React.Component{
 
@@ -156,6 +151,7 @@ class Columns extends React.Component{
 	}
 }
 
+// Renders Columns class with creates all three columns in a card deck
 ReactDOM.render( < Columns / > , document.getElementById("contentContainer"));
 
 // Used as onClick function for buttons and some links, going to the appropriate page
