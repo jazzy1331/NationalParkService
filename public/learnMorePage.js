@@ -84,17 +84,32 @@ class FillInformation extends React.Component {
 			List... < /div>;
 		} else {
 
+			var title = "";
+			if(this.props.target == "articles"){
+				title = "Articles"
+			}else{
+				title = "News Releases";
+			}
+
 			return (
-        <ul class="list-group">
-           {items.map(item => (
-           <div>
-              <li class="list-group-item"><a href={"specificPage.html?parkCode=" + parkCode + "&id=" + item.id + "&topic=" + this.props.target + "&name=" + item.title}>
-                 {item.title}
-                 </a>
-              </li>
-           </div>
-           ))}
-        </ul>
+				<div class="card mb-4 shadow-sm">
+					<div class="card-body">
+						<h2 class="card-title">{title}</h2>
+		        <ul class="list-group">
+		           {items.map(item => (
+		           <div>
+		              <li class="list-group-item"><a href={"specificPage.html?parkCode=" + parkCode + "&id=" + item.id + "&topic=" + this.props.target + "&name=" + item.title}>
+		                 {item.title}
+		                 </a>
+		              </li>
+		           </div>
+		           ))}
+		        </ul>
+					</div>
+					<div class="card-footer">
+						 <a type="button" class="btn btn-secondary" href={"seeAllPage.html?parkCode=" + parkCode + "&target=" + this.props.target} role="button">See All  &#187;</a>
+					</div>
+				</div>
 			);
 		}
 	}
@@ -102,8 +117,46 @@ class FillInformation extends React.Component {
 
 // Renders each React JS class with the appropriate DOM Element to render into
 // Takes in property 'target' to get the correct information
-ReactDOM.render( < FillInformation target = "newsreleases" / > , document.getElementById("newsContainer"));
-ReactDOM.render( < FillInformation target = "articles" / > , document.getElementById("articlesContainer"));
+// ReactDOM.render( < FillInformation target = "newsreleases" / > , document.getElementById("newsContainer"));
+// ReactDOM.render( < FillInformation target = "articles" / > , document.getElementById("articlesContainer"));
+
+// React Class that combines all three columns and renders them together
+class Columns extends React.Component{
+
+	render(){
+
+		// Makes instances of the FillInformation class for each column
+		return(
+
+			<div class="card-deck d-flex justify-content-center">
+				<FillInformation target="newsreleases"/>
+				<FillInformation target="articles"/>
+				<div class="card mb-4 shadow-sm">
+					 <div class="card-body">
+							<h2 class="card-title">Education</h2>
+							<ul class="list-group">
+								<li class="list-group-item">
+									<a href="#" onClick="nextPage('lessons')" class="card-text">Lesson Plans</a>
+								</li>
+								<br></br>
+								<li class="list-group-item">
+									<a href="#" onClick="nextPage('places')" class="card-text">Places</a>
+								</li>
+								<br></br>
+								<li class="list-group-item">
+									<a href="#" onClick="nextPage('people')" class="card-text">People</a>
+								</li>
+								<br></br>
+							</ul>
+					 </div>
+				</div>
+			</div>
+		);
+
+	}
+}
+
+ReactDOM.render( < Columns / > , document.getElementById("contentContainer"));
 
 // Used as onClick function for buttons and some links, going to the appropriate page
 function nextPage(targetPage) {
