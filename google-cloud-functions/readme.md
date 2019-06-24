@@ -6,7 +6,7 @@ A Google Cloud Function is used in conjunction with a Cloud Scheduler Job to upd
 
 The Firebase Firestore DB is used to hold all the information sent to it by the Cloud Function and sends all the information requested by the website. The setup of the database is as follows:
 
-![Cloud Scheduler Creation Image](screenshots/Firestore-Diagram.jpg?raw=true "Cloud Scheduler Creation")
+![Firebase Setup Image](screenshots/Firestore-Diagram.jpg?raw=true "Firebase Setup")
 
 ## Google Cloud Function
 

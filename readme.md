@@ -2,6 +2,10 @@
 
 A simple and intuitive website that provides information about various units in the National Park System. Website is built primarily using HTML, React JS, and Bootstrap for the frontend, and primarily uses Google Cloud Functions, Firebase Firestore DB, Cloud Scheduler, and the NPS API for backend functions.
 
+## High Level Architecture
+
+![High Level Architecture Image](google-cloud-functions/screenshots/architectureDiagram.png?raw=true "High Level Architecture")
+
 ## Frontend Components
 
 **React JS**: A JavaScript Library for building dynamic UIs.
