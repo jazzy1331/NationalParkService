@@ -93,63 +93,75 @@ class FillInformation extends React.Component {
 					title = "Visitor Centers";
 				}
 
-				// return (
-        //   <ul class="list-group">
-        //      {items.map(item => (
-        //      <div>
-        //         <li class="list-group-item"><a href={"specificPage.html?parkCode=" + parkCode + "&id=" + item.id + "&topic=" + this.props.target + "&name=" + item.name}>
-        //            {item.name}
-        //            </a>
-        //         </li>
-        //      </div>
-        //      ))}
-        //   </ul>
-				// );
+				if(items.length > 0){
+					return (
+						<div class="card mb-4 shadow-sm">
+							<div class="card-body">
+								<h2 class="card-title">{title}</h2>
+								<ul class="list-group">
+									 {items.map(item => (
+									 <div>
+											<li class="list-group-item"><a href={"specificPage.html?parkCode=" + parkCode + "&id=" + item.id + "&topic=" + this.props.target + "&name=" + item.name}>
+												 {item.name}
+												 </a>
+											</li>
+									 </div>
+									 ))}
+								</ul>
+								<br></br>
+							</div>
+							<div class="card-footer">
+								 <a type="button" class="btn btn-secondary" href={"seeAllPage.html?parkCode=" + parkCode + "&target=" + this.props.target} role="button">See All  &#187;</a>
+							</div>
+						</div>
+					);
+				}else{
+					return (
+						<div class="card mb-4 shadow-sm">
+							<div class="card-body">
+								<h2 class="card-title">{title}</h2>
+								<p>{"No " + title + " At This Park"}</p>
+							</div>
+						</div>
+					);
+				}
 
-				return (
-					<div class="card mb-4 shadow-sm">
-						<div class="card-body">
-							<h2 class="card-title">{title}</h2>
-							<ul class="list-group">
-								 {items.map(item => (
-								 <div>
-										<li class="list-group-item"><a href={"specificPage.html?parkCode=" + parkCode + "&id=" + item.id + "&topic=" + this.props.target + "&name=" + item.name}>
-											 {item.name}
-											 </a>
-										</li>
-								 </div>
-								 ))}
-							</ul>
-							<br></br>
-						</div>
-						<div class="card-footer">
-							 <a type="button" class="btn btn-secondary" href={"seeAllPage.html?parkCode=" + parkCode + "&target=" + this.props.target} role="button">See All  &#187;</a>
-						</div>
-					</div>
-				);
+
 			} else {
 
-				return (
-					<div class="card mb-4 shadow-sm">
-						<div class="card-body">
-							<h2 class="card-title">Events</h2>
-							<ul class="list-group">
-								 {items.map(item => (
-								 <div>
-									 <li class="list-group-item" ><a href={"specificPage.html?parkCode=" + parkCode + "&id=" + item.id + "&topic=" + this.props.target + "&name=" + item.title}>
-											{item.title}
-											</a>
-									 </li>
-								 </div>
-								 ))}
-							</ul>
-							<br></br>
+				if(items.length > 0){
+					return (
+						<div class="card mb-4 shadow-sm">
+							<div class="card-body">
+								<h2 class="card-title">Events</h2>
+								<ul class="list-group">
+									 {items.map(item => (
+									 <div>
+										 <li class="list-group-item" ><a href={"specificPage.html?parkCode=" + parkCode + "&id=" + item.id + "&topic=" + this.props.target + "&name=" + item.title}>
+												{item.title}
+												</a>
+										 </li>
+									 </div>
+									 ))}
+								</ul>
+								<br></br>
+							</div>
+							<div class="card-footer">
+								 <a type="button" class="btn btn-secondary" href={"seeAllPage.html?parkCode=" + parkCode + "&target=" + this.props.target} role="button">See All  &#187;</a>
+							</div>
 						</div>
-						<div class="card-footer">
-							 <a type="button" class="btn btn-secondary" href={"seeAllPage.html?parkCode=" + parkCode + "&target=" + this.props.target} role="button">See All  &#187;</a>
+					);
+				}else{
+					return (
+						<div class="card mb-4 shadow-sm">
+							<div class="card-body">
+								<h2 class="card-title">Events</h2>
+								<p>No Events At This Park</p>
+							</div>
 						</div>
-					</div>
-				);
+					);
+				}
+
 			}
 		}
 	}

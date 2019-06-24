@@ -91,26 +91,39 @@ class FillInformation extends React.Component {
 				title = "News Releases";
 			}
 
-			return (
-				<div class="card mb-4 shadow-sm">
-					<div class="card-body">
-						<h2 class="card-title">{title}</h2>
-		        <ul class="list-group">
-		           {items.map(item => (
-		           <div>
-		              <li class="list-group-item"><a href={"specificPage.html?parkCode=" + parkCode + "&id=" + item.id + "&topic=" + this.props.target + "&name=" + item.title}>
-		                 {item.title}
-		                 </a>
-		              </li>
-		           </div>
-		           ))}
-		        </ul>
+			if(items > 0){
+				return (
+					<div class="card mb-4 shadow-sm">
+						<div class="card-body">
+							<h2 class="card-title">{title}</h2>
+			        <ul class="list-group">
+			           {items.map(item => (
+			           <div>
+			              <li class="list-group-item"><a href={"specificPage.html?parkCode=" + parkCode + "&id=" + item.id + "&topic=" + this.props.target + "&name=" + item.title}>
+			                 {item.title}
+			                 </a>
+			              </li>
+			           </div>
+			           ))}
+			        </ul>
+						</div>
+						<div class="card-footer">
+							 <a type="button" class="btn btn-secondary" href={"seeAllPage.html?parkCode=" + parkCode + "&target=" + this.props.target} role="button">See All  &#187;</a>
+						</div>
 					</div>
-					<div class="card-footer">
-						 <a type="button" class="btn btn-secondary" href={"seeAllPage.html?parkCode=" + parkCode + "&target=" + this.props.target} role="button">See All  &#187;</a>
+				);
+			}else{
+				return (
+					<div class="card mb-4 shadow-sm">
+						<div class="card-body">
+							<h2 class="card-title">{title}</h2>
+			        <p>{"No " + title + " At This Park"}</p>
+						</div>
 					</div>
-				</div>
-			);
+				);
+			}
+
+
 		}
 	}
 }
@@ -131,15 +144,15 @@ class Columns extends React.Component{
 							<h2 class="card-title">Education</h2>
 							<ul class="list-group">
 								<li class="list-group-item">
-									<a href="#" onClick="nextPage('lessons')" class="card-text">Lesson Plans</a>
+									<a href={"seeAllPage.html?parkCode=" + parkCode + "&target=lessonplans"} class="card-text">Lesson Plans</a>
 								</li>
 								<br></br>
 								<li class="list-group-item">
-									<a href="#" onClick="nextPage('places')" class="card-text">Places</a>
+									<a href={"seeAllPage.html?parkCode=" + parkCode + "&target=places"} class="card-text">Places</a>
 								</li>
 								<br></br>
 								<li class="list-group-item">
-									<a href="#" onClick="nextPage('people')" class="card-text">People</a>
+									<a href={"seeAllPage.html?parkCode=" + parkCode + "&target=people"} class="card-text">People</a>
 								</li>
 								<br></br>
 							</ul>
