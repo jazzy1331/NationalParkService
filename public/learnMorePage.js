@@ -57,6 +57,12 @@ class FillInformation extends React.Component {
 			items
 		} = this.state;
 
+		var title = "";
+		if(this.props.target == "articles"){
+			title = "Articles"
+		}else{
+			title = "News Releases";
+		}
 		if (error) {
 			console.log("Error: " + error.message + ". Setting text to say 'Please Try Again'");
 			return <div > {
@@ -65,18 +71,16 @@ class FillInformation extends React.Component {
 			information is currently not available.Please
 			try again later. < /div>;
 		} else if (!isLoaded) {
-			return <div > Loading {
-				this.props.target
-			}
-			List... < /div>;
+			return(
+				<div class="px-2">
+					<div class="spinner-border" role="status">
+					  <span class="sr-only">Loading...</span>
+					</div>
+					<p>{"Loading " + title + "..."}</p>
+				</div>
+			);
 		} else {
 
-			var title = "";
-			if(this.props.target == "articles"){
-				title = "Articles"
-			}else{
-				title = "News Releases";
-			}
 
 			if(items.length > 0){
 				return (

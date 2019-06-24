@@ -135,10 +135,14 @@ class FillInformation extends React.Component {
 			information is currently not available.Please
 			try again later. < /div>;
 		} else if (!isLoaded) {
-			return <div > Loading {
-				topic
-			}
-			List... < /div>;
+			return(
+				<div class="px-2">
+					<div class="spinner-border" role="status">
+						<span class="sr-only">Loading...</span>
+					</div>
+					<p>{"Loading " + document.getElementById("title").innerHTML + " Item..."}</p>
+				</div>
+			);
 		} else {
 
 			if (items.length > 0) {

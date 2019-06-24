@@ -256,10 +256,14 @@ class FillInformation extends React.Component {
 			information is currently not available.Please
 			try again later. < /div>;
 		} else if (!isLoaded) {
-			return <div > Loading {
-				this.props.target
-			}
-			List... < /div>;
+			return(
+				<div class="px-2">
+					<div class="spinner-border" role="status">
+						<span class="sr-only">Loading...</span>
+					</div>
+					<p>{"Searching " + this.props.targetReadable + "..."}</p>
+				</div>
+			);
 		} else {
 			// If there are results for the search, then they are displayed
 			if (items.length > 0) {

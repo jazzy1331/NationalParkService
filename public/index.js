@@ -67,7 +67,7 @@ class Parks extends React.Component {
 			console.log("Error: " + error.message + ". Setting text to say 'Please Try Again'");
 			return <div > Park list currently not available.Please Try again later. < /div>;
 		} else if (!isLoaded) {
-			return <div > Loading Park List... < /div>;
+			return <div > Loading Parks < /div>;
 		} else {
 
 			// Adds the options to the dropdown menu using the DB Call results
@@ -122,6 +122,8 @@ class News extends React.Component {
 			isLoaded,
 			items
 		} = this.state;
+
+
 
     // Goes through all news articles and adjusts picture and description properties for display
 		for (var i = 0; i < items.length; i++) {
@@ -194,7 +196,14 @@ class News extends React.Component {
 			return <div > News is currently not available.Please
 			try again later. < /div>;
 		} else if (!isLoaded) {
-			return <div > Loading... < /div>;
+			return(
+				<div>
+					<div class="spinner-border" role="status">
+					  <span class="sr-only">Loading...</span>
+					</div>
+					<p>Loading...</p>
+				</div>
+			);
 		} else {
 
 			// The news Bootstrap cards are returned, each with its own news article from the API Call
