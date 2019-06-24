@@ -528,6 +528,18 @@ class FillInformation extends React.Component {
 
 			if (target == "events") {
 
+				for(var i = 0; i < items.length; i++){
+
+					var currentBadText = items.description;
+
+					var renderHTMLContent = (currentBadText) =>
+					  React.createElement('div', {
+					    dangerouslySetInnerHTML: { __html: currentBadText},
+					  });
+
+						items.goodDescription = renderHTMLContent;
+				}
+
 				return (
           <div>
              {items.map(item => (
@@ -536,7 +548,7 @@ class FillInformation extends React.Component {
                    <div class="card-body">
                       <h5 class="card-title">{item.title}</h5>
                       <p class="itemSubtitle text-muted">{item.category}</p>
-                      <p class="card-text">{item.description}</p>
+                      <div class="card-text" dangerouslySetInnerHTML={{ __html: item.description }} />
                    </div>
                    <div class="card-footer">
                       <a href={"specificPage.html?parkCode=" + item.sitecode + "&name=" + item.title + "&topic=" + target  + "&id=" + item.id + "&q=" + keyword} class="btn btn-secondary my-2">More Information</a>

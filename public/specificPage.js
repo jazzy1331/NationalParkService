@@ -405,7 +405,7 @@ class FillInformation extends React.Component {
                         <div class="card-body">
                            <h3 class="card-title">{correctItem.title}</h3>
                            <p class="text-muted">{correctItem.category}</p>
-                           <p class="card-text">{correctItem.description}</p>
+                           <div class="card-text" dangerouslySetInnerHTML={{ __html: correctItem.description }} />
                         </div>
                      </div>
                   </div>
