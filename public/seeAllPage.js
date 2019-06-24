@@ -653,7 +653,56 @@ class FillInformation extends React.Component {
 					if (item.abstract.length > 100) {
 						item.abstract = item.abstract.substring(0, 100) + "...";
 					}
+
+					// Beautifies the date
+					if(item.releasedate.length > 0){
+						var month = item.releasedate.substring(5,7);
+						var day = item.releasedate.substring(8,10);
+						var year = item.releasedate.substring(0,4);
+
+						switch(month){
+							case "01":
+								month = "January";
+								break;
+							case "02":
+								month = "February";
+								break;
+							case "03":
+								month = "March";
+								break;
+							case "04":
+								month = "April";
+								break;
+							case "05":
+								month = "May";
+								break;
+							case "06":
+								month = "June";
+								break;
+							case "07":
+								month = "July";
+								break;
+							case "08":
+								month = "August";
+								break;
+							case "09":
+								month = "September";
+								break;
+							case "10":
+								month = "October";
+								break;
+							case "11":
+								month = "November";
+								break;
+							case "12":
+								month = "December";
+								break;
+						}
+
+						item.releasedate = month + " " + day + ", " + year;
+					}
 				}
+
 
 				return (
           <div class="card-columns">
