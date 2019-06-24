@@ -19,7 +19,7 @@ A simple and intuitive website that provides information about various units in 
 ## Backend Components
 **NPS API:** The National Park Service API is provided by the National Park Service and provides information about parks, campgrounds, events, and more.
 
-**Firebase Firestore DB:** An online, no SQL database. Responsible for holding information about the parks in the National Park system.
+**Firebase Firestore DB:** An online, no SQL database. Responsible for holding information about the parks in the National Park system. Used to reduce time and increase efficiency when fetching data about parks.
 
 **Google Cloud Functions:** An event-driven, serverless platform. Responsible for fetching park information from the NPS API, parsing through the result, and sending information to the Firestore DB.
 
