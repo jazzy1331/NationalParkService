@@ -77,7 +77,7 @@ This website can be visited using any standard web browser. It requires JavaScri
 * The model given in the docs do not accurately represent the actual API output. I recommend making API calls with [Postman](https://www.getpostman.com/) to see the actual output.
 * Asking the API for more then a certain number of items will often result in a bad output.
 * The `events` API does not take in the same GET Parameters as listed in the API Docs (specifically the `limit` and `start` parameters should actually be passed in as `pagesize` and `pagenumber` respectively).
-* The time from call to result is variable and can some times take upwards of 10 seconds (see Future Work below).
+* The time from call to result is highly variable and can some times take upwards of 45 seconds (see Future Work below).
 
 ## Future Work
 

@@ -3,6 +3,8 @@ var API_KEY = config.API_KEY;
 // Gets URL paramters, given by previous page, to fetch the appropriate information from the API
 let params = (new URL(document.location)).searchParams;
 let parkCode = params.get('parkCode');
+let parkName = params.get('parkName');
+document.getElementById("parkNameHeader").innerHTML = parkName;
 
 // Creates listener to "click" the Go button by just pressed enter key while focused on the search box
 var input = document.getElementById("searchBox");
@@ -12,21 +14,6 @@ input.addEventListener("keyup", function (event) {
 		document.getElementById("searchButton").click();
 	}
 });
-
-// Calls NPS API for information about the current viewed park
-// Sets park title element from HTML to values from the call
-fetch("https://developer.nps.gov/api/v1/parks?parkCode=" + parkCode + "&api_key=" + API_KEY)
-	.then(res => res.json())
-	.then(
-		(result) => {
-			var parkInfo = result.data[0];
-			document.getElementById("parkNameHeader").innerHTML = parkInfo.fullName;
-		},
-
-	)
-	.catch((error) => {
-		console.log("Error: " + error + ". Setting page h3 to 'National Park'");
-	});
 
 // React JS class that fills in information into the topic containers
 // Requires the class property 'target' to be passed in to get the appropriate information
@@ -45,7 +32,7 @@ class FillInformation extends React.Component {
 		// While limit is stated as 3, news gives the limit number of entries, articles gives {1 + limit}
 		// Calls API for information about the passed in target and the current park
 		// Limits to 5 pieces of information
-		fetch("https://developer.nps.gov/api/v1/" + this.props.target + "?parkCode=" + parkCode + "&limit=3&api_key=" + API_KEY)
+		fetch("https://developer.nps.gov/api/v1/" + this.props.target + "?parkCode=" + parkCode + "&limit=5&api_key=" + API_KEY)
 			.then(res => res.json())
 			.then(
 				(result) => {
@@ -91,7 +78,7 @@ class FillInformation extends React.Component {
 				title = "News Releases";
 			}
 
-			if(items > 0){
+			if(items.length > 0){
 				return (
 					<div class="card mb-4 shadow-sm">
 						<div class="card-body">
@@ -122,8 +109,6 @@ class FillInformation extends React.Component {
 					</div>
 				);
 			}
-
-
 		}
 	}
 }

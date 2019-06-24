@@ -1,5 +1,6 @@
 var API_KEY = config.API_KEY;
 var allData = [];
+var parkName = "";
 
 // Gets URL paramters, given by previous page, to fetch the appropriate information from the API
 let params = (new URL(document.location)).searchParams;
@@ -28,7 +29,6 @@ db.collection("Npsparks")
   .get()
   .then((querySnapshot) => {
     querySnapshot.forEach(function (doc) {
-        console.log(doc.id, " => ", doc.data().parkCode);
         // Saves DB data to variable
         allData.push(doc.data());
       }),
@@ -45,10 +45,11 @@ function displayParkData(){
     if(allData[i].parkCode == parkCode){
       document.title = allData[i].title;
       document.getElementById("parkNameHeader").innerHTML = allData[i].title;
+      parkName = allData[i].title;
       document.getElementById("description").innerHTML = allData[i].description;
+      break;
     }
   }
-
 }
 
 // React JS class that adds alerts to the modal for alerts
@@ -160,10 +161,10 @@ function nextPage(targetPage){
 
   switch(targetPage) {
   case "things":
-        window.location = "thingsToDoPage.html?parkCode=" + parkCode;
+        window.location = "thingsToDoPage.html?parkCode=" + parkCode + "&parkName=" + parkName;
     break;
   case "learn":
-        window.location = "learnMorePage.html?parkCode=" + parkCode;
+        window.location = "learnMorePage.html?parkCode=" + parkCode  + "&parkName=" + parkName;
     break;
   }
 }
