@@ -8,6 +8,11 @@
       <script type='text/javascript' src='config.js'></script>
       <script src="https://kit.fontawesome.com/9cd387ab56.js"></script>
       <title>National Park Service</title>
+      <style>
+      .parkImage{
+        background-image:url("imgs/parkSceneryCropped.jpg");
+      }
+      </style>
    </head>
    <body>
      <!-- Top Navigation Bar -->
@@ -37,10 +42,10 @@
      </nav>
       <!-- Main Content - Title, park chooser, and news -->
       <main role="main">
-         <section class="jumbotron text-center">
+         <section class="jumbotron text-center parkImage">
            <!-- Park Chooser -->
             <div class="container">
-               <h3 class="px-2 py-2">Find Your Park</h3>
+               <h2 class="px-2 py-2 text-white">Find Your Park</h2>
                <div class="d-flex justify-content-center">
                   <div class="dropdown px-2">
                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,7 +55,7 @@
                      <div id="parkChooserDomContainer" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                      </div>
                   </div>
-                  <h4 class="mx-2">OR</h4>
+                  <h4 class="mx-2 text-white">OR</h4>
                   <!-- <h5>State: </h5> -->
                   <div class="dropdown px-2">
                      <button class="btn btn-secondary dropdown-toggle" type="button" id="stateDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
