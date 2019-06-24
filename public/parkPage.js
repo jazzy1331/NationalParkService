@@ -1,10 +1,9 @@
 var API_KEY = config.API_KEY;
+var allData = [];
 
 // Gets URL paramters, given by previous page, to fetch the appropriate information from the API
 let params = (new URL(document.location)).searchParams;
 let parkCode = params.get('parkCode');
-
-var parkInfo;
 
 // Creates listener to "click" the Go button by just pressed enter key while focused on the search box
 var input = document.getElementById("searchBox");
@@ -15,23 +14,42 @@ input.addEventListener("keyup", function(event) {
   }
 });
 
-// Calls NPS API for information about the current viewed park
-// Sets title and description elements from HTML to values from the call
-fetch("https://developer.nps.gov/api/v1/parks?parkCode=" + parkCode + "&api_key=" + API_KEY)
-  .then(res => res.json())
-  .then(
-    (result) => {
-      parkInfo = result.data[0];
-      document.title = parkInfo.name;
-      document.getElementById("parkNameHeader").innerHTML = parkInfo.fullName;
-      document.getElementById("description").innerHTML = parkInfo.description;
-    },
+// Sets up access to Firestore Database
+var config = {
+	apiKey: config.FIREBASE_API_KEY,
+	projectId: config.FIREBASE_PROJECT_ID
+};
 
-  )
-  .catch((error) => {
-    console.log("Error: " + error + ". Setting page <title> to 'National Park'");
-    document.title = "National Park";
+const fire = firebase.initializeApp(config);
+const db = fire.firestore();
+
+// Gets all the park data from the DB
+db.collection("Npsparks")
+  .get()
+  .then((querySnapshot) => {
+    querySnapshot.forEach(function (doc) {
+        console.log(doc.id, " => ", doc.data().parkCode);
+        // Saves DB data to variable
+        allData.push(doc.data());
+      }),
+      displayParkData()
+  })
+  .catch(function (error) {
+    console.log("Error getting documents: ", error);
   });
+
+// Uses DB info to display park name and description
+function displayParkData(){
+
+  for(var i = 0; i < allData.length; i++){
+    if(allData[i].parkCode == parkCode){
+      document.title = allData[i].title;
+      document.getElementById("parkNameHeader").innerHTML = allData[i].title;
+      document.getElementById("description").innerHTML = allData[i].description;
+    }
+  }
+
+}
 
 // React JS class that adds alerts to the modal for alerts
 class Alerts extends React.Component {
